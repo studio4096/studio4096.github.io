@@ -52,4 +52,9 @@ _site
 *.swp
 *.lock
 #lib/*
+lib/js-yaml/demo/
+lib/js-yaml/examples/
+lib/famous/examples/
+lib/famous/guides/
 content/*
+
