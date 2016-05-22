@@ -1,0 +1,39 @@
+{
+  "name": "studio4096 web",
+  "description": "The website of studio4096",
+  "version": "0.1.0",
+  "homepage": "https://www.studio4096.com/",
+  "authors": [
+    {
+      "name": "studio4096",
+      "url": "http://www.studio4096.com//"
+    }
+  ],
+  "main": "app/index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "famo.us"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.15",
+    "almond": "~0.2.9",
+    "famous-polyfills": "~0.3.0",
+    "famous-flex": "~0.1.9",
+    "js-yaml": "~3.2.5",
+    "fastclick": "~1.0.6",
+    "famous-bkimagesurface": "~1.0.2",
+    "underscore": "~1.7.0",
+    "famous": "~0.3.5"
+  }
+}

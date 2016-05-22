@@ -1,12 +1,42 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=no" />
+    <title>studio4096 | {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ " /feed.xml " | prepend: site.baseurl | prepend: site.url }}">
 
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="shortcut icon" href="favicon.ico">
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+    <!-- build:css(app/) css/famous.css -->
+    <link rel="stylesheet" type="text/css" href="lib/famous/src/core/famous.css" />
+    <!-- endbuild -->
+
+    <!-- build:css(app/) css/app.css -->
+    <!--link rel="stylesheet" href="{{ " /css/main.css " | prepend: site.baseurl }}"-->
+    <link rel="stylesheet" href="{{ " /css/app.css " | prepend: site.baseurl }}">
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js(app/) src/polyfills.js -->
+    <script type="text/javascript" src="lib/famous-polyfills/functionPrototypeBind.js"></script>
+    <script type="text/javascript" src="lib/famous-polyfills/classList.js"></script>
+    <script type="text/javascript" src="lib/famous-polyfills/requestAnimationFrame.js"></script>
+    <!-- endbuild -->
+
+    <!-- process:remove:dev -->
+    <script type="text/javascript" src="src/main.js"></script>
+    <!-- /process -->
+
+    <!-- process:remove:dist -->
+    <script type="text/javascript" src="lib/requirejs/require.js" data-main="src/requireConfig"></script>
+    <!-- /process -->
+
 </head>
