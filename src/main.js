@@ -74,7 +74,8 @@ define(function(require, exports, module) { // FIXME main.js:2 Uncaught Referenc
     var tmplNavLink = _.template('<a href="<%= href %>"><%= title %></a>');
     var tmplBtn = _.template('<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-<%= content %>"></i></button>');
 
-    var currentLayout = 'GridLayout';
+    //var currentLayout = 'GridLayout';
+    var currentLayout = 'CollectionLayout';
     var fullSizeLayout = 'FullScreen';
     var selectedItem;
     var isFullSize = false;
