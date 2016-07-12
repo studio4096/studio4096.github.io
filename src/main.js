@@ -1,5 +1,5 @@
 /* globals define */
-define(function(require, exports, module) { // FIXME main.js:2 Uncaught ReferenceError: define is not defined 
+define(function(require, exports, module) {
     'use strict';
     //require('../lib/famous-polyfills/index');
     //require('../lib/famous/src/core/famous.css');
@@ -13,6 +13,10 @@ define(function(require, exports, module) { // FIXME main.js:2 Uncaught Referenc
     // underscore
     var _ = require('underscore');
 
+    var cloudinary = require('cloudinary').Cloudinary.new(); // .CloudinaryJQuery;
+    cloudinary.config({
+        'cloud_name': 'studio4096'
+    });
     // import dependencies
     var Engine = require('famous/core/Engine');
     var Modifier = require('famous/core/Modifier');
@@ -49,23 +53,23 @@ define(function(require, exports, module) { // FIXME main.js:2 Uncaught Referenc
     var data = {
         title: 'studio4096',
         images: [
-            'http://res.cloudinary.com/studio4096/image/upload/v1463917865/bluedress_zeqi98.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1463917860/girl3_vsjctg.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1463918039/girl_20110402_hvkofa.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1464017888/red_dress_grh5ei.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1463918084/dessin0001mini_oyqnei.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1464017680/2013_new_years_card_pvzhxe.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1464017697/eyecatch_rk4btd.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1464017894/new_year_2014_wzz1kk.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1464017808/kiss_72dpi_A3_just_gdosor.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1464018008/valentinefull_szqy2o.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1463918146/xmas_2013_a3_400dpi_uia3tf.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1463918126/compo01_jptwnv.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1464017897/fukei00_c7h8jn.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1464018011/summer_2013-01_qo1kti.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1463918173/P1000105mini_jbvlrp.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1463918179/flower_head_nuc617.jpg',
-            'http://res.cloudinary.com/studio4096/image/upload/v1463918171/flowerhead_trimed_mt8mtg.jpg'
+            'bluedress_zeqi98.jpg',
+            'girl3_vsjctg.jpg',
+            'girl_20110402_hvkofa.jpg',
+            'red_dress_grh5ei.jpg',
+            'dessin0001mini_oyqnei.jpg',
+            '2013_new_years_card_pvzhxe.jpg',
+            'eyecatch_rk4btd.jpg',
+            'new_year_2014_wzz1kk.jpg',
+            'kiss_72dpi_A3_just_gdosor.jpg',
+            'valentinefull_szqy2o.jpg',
+            'xmas_2013_a3_400dpi_uia3tf.jpg',
+            'compo01_jptwnv.jpg',
+            'fukei00_c7h8jn.jpg',
+            'summer_2013-01_qo1kti.jpg',
+            'P1000105mini_jbvlrp.jpg',
+            'flower_head_nuc617.jpg',
+            'flowerhead_trimed_mt8mtg.jpg'
         ]
     };
 
@@ -107,9 +111,23 @@ define(function(require, exports, module) { // FIXME main.js:2 Uncaught Referenc
         // var btn = _surf(iconName,'navitem', { size: [40, undefined] });
         var btn = _createButton(iconName);
         btn.on('click', function() {
-            // console.log(isFullSize);
             isFullSize = false;
-            _.each(collection, function(image) {
+            _.each(collection, function(image, i) {
+                var filename = data.images[i];
+                var path = cloudinary.url(filename, {
+                    secure: false,
+                    angle: "exif",
+                    /*
+                    width: 160,
+                    height: 160,
+                    */
+                    width: 320,
+                    height: 320,
+                    // gravity: "face",
+                    // crop: 'thumb'
+                    crop: 'fit'
+                });
+                image.setContent(path);
                 image.setSizeMode(isFullSize ? BkImageSurface.SizeMode.ASPECTFIT : BkImageSurface.SizeMode.ASPECTFILL);
             });
             // Gridlayout のときはスクロールさせない。
@@ -159,7 +177,7 @@ define(function(require, exports, module) { // FIXME main.js:2 Uncaught Referenc
     var layoutListRenderables = [];
     var collection = [];
     var layouts = [];
-    var layoutDetailsView;
+    // var layoutDetailsView;
     var navbar = _createNavbar();
     // var sidebar = _createSidebar();
     // var container = new ContainerSurface();
@@ -288,11 +306,12 @@ define(function(require, exports, module) { // FIXME main.js:2 Uncaught Referenc
     }
 
     function _createNavbar() {
-        var title = _surf(data.title, 'title', {
-            size: [100, undefined]
+        var title = _surf('about ' + data.title, 'title', {
+            size: [160, undefined]
         });
         title.on('click', function() {
-            location.href = 'mailto:' + 'contact' + '@' + 'studio4096.com';
+            // location.href = 'mailto:' + 'contact' + '@' + 'studio4096.com';
+            location.href = '/about/';
             // alert('TODO show about ');
         });
         var layoutController = new LayoutController({
@@ -331,8 +350,19 @@ define(function(require, exports, module) { // FIXME main.js:2 Uncaught Referenc
         collectionItemId++;
         var sur = new BkImageSurface({
             classes: ['image-frame'],
-            // content: '/content/images/' + path,
-            content: path, // TODO use jQuery.cloudinary 
+            content: cloudinary.url(path, {
+                secure: false,
+                angle: "exif",
+                /*
+                width: 160,
+                height: 160,
+                */
+                width: 320,
+                height: 320,
+                // gravity: "face",
+                // crop: "thumb"
+                crop: "fit"
+            }),
             sizeMode: 'cover' //,
                 /*
                 properties: {
@@ -341,11 +371,19 @@ define(function(require, exports, module) { // FIXME main.js:2 Uncaught Referenc
                 */
         });
         sur.on('click', function() {
-            // console.log('ghohgeo');
             if (isFullSize) return;
             isFullSize = true;
             selectedItem = sur;
-            _.each(collection, function(image) {
+            _.each(collection, function(image, i) {
+                var filename = data.images[i];
+                var path = cloudinary.url(filename, {
+                    secure: false,
+                    angle: "exif",
+                    width: null,
+                    height: null,
+                    crop: null
+                });
+                image.setContent(path);
                 image.setSizeMode(isFullSize ? BkImageSurface.SizeMode.ASPECTFIT : BkImageSurface.SizeMode.ASPECTFILL);
             });
             if (selectedItem) scrollView.goToRenderNode(selectedItem);

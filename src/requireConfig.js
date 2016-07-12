@@ -12,7 +12,9 @@ require.config({
         'js-yaml': '../lib/js-yaml/dist/js-yaml',
         fastclick: '../lib/fastclick/lib/fastclick',
         'famous-bkimagesurface': '../lib/famous-bkimagesurface',
-        underscore: '../lib/underscore/underscore'
+        underscore: '../lib/underscore/underscore',
+        jquery: '../lib/jquery/dist/jquery.min',
+        'cloudinary': '../lib/cloudinary/js/jquery.cloudinary'
     },
     packages: [
 
