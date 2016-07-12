@@ -18,6 +18,8 @@ github_username:  studio4096
 # Build settings
 markdown: kramdown
 
+destination: public
+source: src
 exclude:
   - ".bowerrc"
   - "bower.json"

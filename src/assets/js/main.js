@@ -100,7 +100,7 @@ define(function(require, exports, module) {
         // return _surf(tmplBtn({content:content}), null, {size: [40, undefined]});
         return new ImageSurface({
             size: [20, 20],
-            content: '/content/images/icon-' + iconName + '.svg' //,
+            content: '/assets/img/icon-' + iconName + '.svg' //,
                 // classes: ['backfaceVisibility']
         });
     }

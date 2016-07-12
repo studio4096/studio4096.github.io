@@ -44,17 +44,17 @@ $RECYCLE.BIN/
 
 
 #####=== jekyll ===#####
-_site
+public
 .sass-cache
 .jekyll-metadata
 
 #####=== others ===#####
 *.swp
 *.lock
-#lib/*
-lib/js-yaml/demo/
-lib/js-yaml/examples/
-lib/famous/examples/
-lib/famous/guides/
-content_images/*
+#src/vendor/*
+src/vendor/js-yaml/demo/
+src/vendor/js-yaml/examples/
+src/vendor/famous/examples/
+src/vendor/famous/guides/
+src/content_images/*
 
