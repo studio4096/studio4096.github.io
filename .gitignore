@@ -83,7 +83,7 @@ jspm_packages
 .node_repl_history
 
 #####=== jekyll ===#####
-public
+#public
 .sass-cache
 .jekyll-metadata
 
