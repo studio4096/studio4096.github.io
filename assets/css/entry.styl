@@ -1,0 +1,122 @@
+@import "kouto-swiss"
+
+normalize()
+ks-support-ie = 10
+ks-support-ie = 9
+ks-support-firefox = 25
+ks-support-chrome = 20
+ks-support-safari = 5
+ks-support-opera = 15
+ks-support-ios-safari = 5
+ks-support-opera-mini = false
+ks-support-android-browser = false
+ks-support-blackberry-browser = false
+ks-support-opera-mobile = false
+ks-support-android-chrome = false
+ks-support-android-firefox = false
+ks-support-ie-mobile = false
+
+
+* {
+  box-sizing: border-box;    
+}
+html,
+body {
+    margin 0 0;
+    width 100%
+    height 100%
+    overflow: hidden;
+}
+
+app-text-color = #333
+app-base-color = #fff
+
+nav-height = 6
+contents-height = (100 - nav-height)
+
+
+html,
+body {
+    background #fff
+    color #333
+}
+
+
+.navbar
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    color: white;
+    height (nav-height)vh
+    ul 
+        margin 0 0 0 1em
+    li
+        margin 3px
+        font-size (nav-height * 0.6)vh
+    h1 
+        height (nav-height)vh
+        font-size (nav-height * 0.6)vh
+        margin 0 0 0 1em
+    a
+        color white
+        text-decoration none
+
+.navitem {
+}
+
+.contents
+    height (contents-height)vh
+
+.back {
+    background: white;
+    background-image: radial-gradient(circle at center, white 20%, #f4f4fa 100%);
+}
+
+.image-frame {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.layout-list img-panel {
+    display: inline-block;
+    width: 100%;
+    height: 30vw;
+    margin: 0;
+    transition: all .25s easing( "in-quad" )
+}
+
+.layout-collection img-panel {}
+
+grid-column-count = 5
+grid-margin = 1
+grid-size = (floor((100 - (grid-margin * 2 * grid-column-count)) / grid-column-count) - 0.1)vw /* 0.1減算してみる */
+.layout-grid img-panel
+    display: inline-block;
+    width grid-size
+    height grid-size
+    margin: (grid-margin)vw;
+    transition: all .25s easing( "in-quad" )
+
++media-query( all, max-width 800px )
+    grid-column-count = 3
+    grid-margin = 1
+    grid-size = (floor((100 - (grid-margin * 2 * grid-column-count)) / grid-column-count) - 0.1)vw /* 0.1減算してみる */
+    .layout-grid img-panel
+        width grid-size
+        height grid-size
+
+
+.layout-full
+    img-panel
+        display inline-block
+        display block /* inline-blockのままだとwhitespace marginができるのでblock。transitionはスピードでごまかしている */
+        width 100%
+        height (contents-height)vh
+        /*
+        margin 5px
+        margin (grid-margin)vw 0px
+        */
+        margin 0
+        transition: all .25s easing( "in-quad" )
+        div
+            background-size contain
+    .image-frame
+        box-shadow none
