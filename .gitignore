@@ -82,18 +82,10 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-#####=== jekyll ===#####
-#public
-#.sass-cache
-#.jekyll-metadata
+#####=== bower ===#####
+bower_components
 
 #####=== others ===#####
 *.swp
 *.lock
-#src/vendor/*
-src/vendor/js-yaml/demo/
-src/vendor/js-yaml/examples/
-src/vendor/famous/examples/
-src/vendor/famous/guides/
-src/content_images/*
 
