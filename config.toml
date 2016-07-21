@@ -1,0 +1,12 @@
+baseurl = "http://www.studio4096.com/"
+languageCode = "ja-jp"
+title = "studio4096 Site"
+author = "studio4096"
+copyright = "Copyright (c) 2006 - 2016, studio4096; all rights reserved."
+canonifyurls = true
+paginate = 3
+
+[params]
+  disqusShortname = "your disqus id." # optional
+  toc = true # optional, When set to TRUE this parameter, table of contents appears in all articles.
+
