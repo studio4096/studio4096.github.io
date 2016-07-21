@@ -3,18 +3,18 @@ var webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const root = __dirname;
-const dest = './src';
-const src = './src';
+const dest = './static';
+const src = './static';
 
 // setting for webpack
 module.exports = {
     entry: {
-        'bundle': src + '/assets/js/entry.js',
+        'bundle': src + '/js/entry.js',
     },
     // watch: true,
     devtool: 'source-map',
     output: {
-        path: dest + '/assets',
+        path: dest,
         publicPath: '/',
         filename: 'js/[name].js'
     },

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
-{% include head.html %}
+<html lang="ja">
+{{ partial "head.html" . }}
 <body>
+{{ partial "header.html" . }}
     <panel-nav id="global-nav" nav-title="studio4096" nav-title-link="mailto:contact@studio4096.com" class="navbar" list-class="" item-class=""></panel-nav>
     <div class="contents">
         <panel-list item-class="image-frame"></panel-list>
     </div>
-    {{ content }}
-
-    <script type="text/javascript" src="/assets/js/bundle.js"></script>
+    <script type="text/javascript" src="/js/bundle.js"></script>
+{{ partial "footer.html" . }}
 </body>
+</html>

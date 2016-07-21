@@ -2,7 +2,7 @@
     'use strict';
 
     require('../css/entry.styl');
-    require('../../../bower_components/optiscroll/dist/optiscroll.css');
+    require('../../bower_components/optiscroll/dist/optiscroll.css');
 
     require('../_tag/panel-nav.tag');
     require('../_tag/panel-list.tag');

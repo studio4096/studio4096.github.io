@@ -84,8 +84,8 @@ jspm_packages
 
 #####=== jekyll ===#####
 #public
-.sass-cache
-.jekyll-metadata
+#.sass-cache
+#.jekyll-metadata
 
 #####=== others ===#####
 *.swp
