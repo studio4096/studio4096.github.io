@@ -1,5 +1,19 @@
 # studio4096 Web Site
 
+### Installation
+#### Requirements
+- node
+- npm
+- webpack
+- hugo
+- browser-sync(optional)
+
+#### Commands
+```
+npm install
+bower install
+```
+
 ### Commands
 
 #### webpack 
@@ -7,11 +21,11 @@
 npm run build
 ```
 
-#### webpack-dev-server, jeklly
+#### webpack-dev-server, hugo
 
 ```
 npm start
-jeklly serve
+hugo server
 ```
 
 #### browser-sync
