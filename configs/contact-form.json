@@ -1,0 +1,33 @@
+{
+   "id" : "1ZGc-_08K9RfjJLjRh_9nsIzvCSSJFyiwXO41ruW4lIY",
+   "items" : [
+      {
+         "choices" : [],
+         "id" : 1584331720,
+         "required" : true,
+         "title" : "Name",
+         "type" : "TEXT"
+      },
+      {
+         "choices" : [],
+         "id" : 689858581,
+         "required" : true,
+         "title" : "Mail Address",
+         "type" : "TEXT"
+      },
+      {
+         "choices" : [],
+         "id" : 1161635301,
+         "required" : false,
+         "title" : "Company Name",
+         "type" : "TEXT"
+      },
+      {
+         "choices" : [],
+         "id" : 44958947,
+         "required" : true,
+         "title" : "Message",
+         "type" : "PARAGRAPH_TEXT"
+      }
+   ]
+}

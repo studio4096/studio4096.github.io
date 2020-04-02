@@ -1,0 +1,33 @@
+{
+    "options": {
+        "cloud_name": "studio4096"
+    },
+    "thumb": {
+        "options": {
+            "secure": false,
+            "angle": "exif",
+            "crop": "fill"
+        },
+        "sizes": [
+            { "media": "(max-width:640px)", "px": 120 },
+            { "media": "(max-width:1024px)", "px": 180 },
+            { "media": "(max-width:1800px)", "px": 300 },
+            { "media": "(min-width:1801px)", "px": 640 },
+            { "media": null, "px": 300 }
+        ]
+    },
+    "preview": {
+        "options": {
+            "secure": false,
+            "angle": "exif",
+            "crop": "limit"
+        },
+        "sizes": [
+            { "media": "(max-width:640px)", "px": 1024 },
+            { "media": "(max-width:1024px)", "px": 1280 },
+            { "media": "(max-width:1800px)", "px": 1800 },
+            { "media": "(min-width:1801px)", "px": 2400 },
+            { "media": null, "px": 1600 }
+        ]
+    }
+}
