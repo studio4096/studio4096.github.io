@@ -37,8 +37,13 @@ export default Vue.extend({
                 }
             })
             this.$api.post(this.$config.contactForm.url, { id: this.$config.contactForm.id, items }).then(res => {
+                if (res.status > 0) {
+                    console.error(res);
+                    throw new Error(res.data && res.data.message ? res.data.message : null);
+                }
                 alert('送信しました。');
             }).catch(ex => {
+                alert('送信に失敗しました。');
                 console.error(ex)
             });
         },
