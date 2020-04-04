@@ -28,6 +28,7 @@ export default Vue.extend({
         refresh() {
         this.sources = this.sizes.filter(size => size.media).map(size => {
             let sizeOption = {
+                secure: true,
                 width: size.px,
                 height: size.px,
             };
@@ -37,7 +38,7 @@ export default Vue.extend({
             }
         });
         const px = this.sizes.find(size => !size.media).px;
-        this.src = this.$cloudinary.url(this.filename, Object.assign({ width: px, height: px }, this.resizeOptions));
+        this.src = this.$cloudinary.url(this.filename, Object.assign({ secure: true, width: px, height: px }, this.resizeOptions));
         },
     },
     created() {
