@@ -11,6 +11,10 @@ cp -p .env{.sample,}
 ```
 
 ```
+git remote add gh-pages git@github.com:studio4096/studio4096.github.io.git
+```
+
+```
 docker-compose up -d
 ```
 
@@ -43,5 +47,6 @@ yarn build
 ### Deploy
 
 ```
-git subtree push --prefix public origin gh-pages
+git subtree push --prefix public gh-pages master
 ```
+
