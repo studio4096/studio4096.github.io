@@ -4,7 +4,7 @@
     },
     "thumb": {
         "options": {
-            "secure": false,
+            "secure": true,
             "angle": "exif",
             "crop": "fill"
         },
@@ -18,7 +18,7 @@
     },
     "preview": {
         "options": {
-            "secure": false,
+            "secure": true,
             "angle": "exif",
             "crop": "limit"
         },
