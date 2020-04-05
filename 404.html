@@ -12,7 +12,7 @@
             var l = window.location;
             var port = l.port ? ':' + l.port : '';
             l.replace(
-                l.protocol + '//' + l.hostname + port + '/?p=' + l.pathname.split('/').slice(0, 1 + segmentCount).join('/');
+                l.protocol + '//' + l.hostname + port + '/?p=' + l.pathname.split('/').slice(0, 1 + segmentCount).join('/')
             );
         })(window);
     </script>
