@@ -37,6 +37,8 @@ export default Vue.extend({
                 }
             })
             this.$api.post(this.$config.contactForm.url, { id: this.$config.contactForm.id, items }).then(res => {
+                return res.data;
+            }).then(res => {
                 if (res.status > 0) {
                     console.error(res);
                     throw new Error(res.data && res.data.message ? res.data.message : null);
