@@ -1,0 +1,28 @@
+{
+    "options": {
+        "cloud": {
+            "cloudName": "studio4096"
+        },
+        "url": {
+            "secure": true
+        }
+    },
+    "thumb": {
+        "sizes": [
+            { "media": "(max-width:640px)", "px": 120 },
+            { "media": "(max-width:1024px)", "px": 180 },
+            { "media": "(max-width:1800px)", "px": 300 },
+            { "media": "(min-width:1801px)", "px": 640 },
+            { "px": 300 }
+        ]
+    },
+    "preview": {
+        "sizes": [
+            { "media": "(max-width:640px)", "px": 1024 },
+            { "media": "(max-width:1024px)", "px": 1280 },
+            { "media": "(max-width:1800px)", "px": 1800 },
+            { "media": "(min-width:1801px)", "px": 2400 },
+            { "px": 1600 }
+        ]
+    }
+}

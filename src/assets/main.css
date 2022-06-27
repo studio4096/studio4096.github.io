@@ -1,0 +1,232 @@
+:root {
+    --app-base-color: #fff;
+    --app-text-color: #333;
+    --app-link-color: #fff;
+    --app-main-color: rgba(0, 0, 0, 0.8);
+    --app-active-color: #3af;
+
+    --nav-height: 2rem;
+    --contents-width: 1024px;
+    --contents-height: calc(100vh - var(--nav-height));
+
+    --grid-column-count: 6;
+    --grid-gap: 10px;
+    --artwork-panel-size: calc((100vw - (var(--grid-gap) * (var(--grid-column-count) + 1)) ) / var(--grid-column-count) );
+}
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+    background: var(--app-base-color);
+    color: var(--app-text-color);
+    line-height: 1.8em;
+    font-weight: 300;
+    /*
+    font-family: 'Poiret One', 'Noto Sans JP', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    */
+    font-family: 'Raleway', 'Noto Sans JP', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+body {
+  display: grid;
+  text-size-adjust: 100%;
+  font-smoothing: antialiased;
+}
+
+/* Typograph */
+h1, h2, h3 {
+    font-weight: 200;
+}
+h2, h3 {
+    margin: 2em 0 1em;
+}
+h2 {
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* Grid Layout */
+.grid-m-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--grid-gap);
+}
+.col-m-2 {
+  grid-column-end: span 2;
+}
+.col-m-3 {
+  grid-column-end: span 3;
+}
+@media all and (min-width: 641px) {
+    .grid-d-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: var(--grid-gap);
+    }
+    .col-d-2 {
+      grid-column-end: span 2;
+    }
+    .col-d-3 {
+      grid-column-end: span 3;
+    }
+}
+
+
+/* Form and Fields */
+.form-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-field {
+    position: relative;
+    margin: 2em auto;
+    width: 100%;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 6px 0;
+
+    border: 0;
+    border-bottom: 1px solid var(--app-text-color);
+    transition: all .15s ease;
+}
+.form-field input {
+    height: 36px;
+}
+.form-field textarea {
+    height: 10rem;
+}
+.form-field label {
+    position: absolute;
+    top: 0.4rem;
+    left: 0;
+    transform-origin: 0 0;
+    transition: all .2s ease;
+}
+.form-field input:not(:placeholder-shown) + label,
+.form-field textarea:not(:placeholder-shown) + label {
+    transform: translateY(-1.2rem) scale(.75);
+}
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+}
+.form-field input:focus + label,
+.form-field textarea:focus + label {
+    color: var(--app-active-color);
+    border-bottom-color: var(--app-active-color);
+    transform: translateY(-1.2rem) scale(.75);
+}
+
+input[type=submit],
+.btn {
+    color: var(--app-link-color);
+    background: var(--app-main-color);
+    padding: 0.5rem 3rem;
+    font-weight: 400;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3000;
+    background: var(--app-main-color);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    color: var(--app-link-color);
+    height: var(--nav-height);
+}
+.gnav {
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-end; */
+    justify-content: center;
+    font-size: 1.2rem;
+
+  margin: 0 auto;
+  padding: 0 var(--grid-gap);
+  max-width: var(--contents-width);
+}
+/* TODO h1やめたい */
+.gnav h1 {
+    margin-right: auto;
+}
+.gnav ul {
+    display: flex;
+    align-items: center;
+}
+.gnav ul li {
+    margin-left: 1em;
+}
+.gnav a {
+    text-decoration: none;
+    color: var(--app-link-color);
+}
+
+main {
+  display: grid;
+  margin: var(--nav-height) auto 0;
+  position: relative;
+  min-height: var(--contents-height);
+}
+
+.contents-media {
+  margin: 0;
+  padding: 0 var(--grid-gap);
+  position: relative;
+}
+.contents-text {
+  margin: 0 auto;
+  padding: 0 var(--grid-gap);
+  max-width: var(--contents-width);
+  position: relative;
+}
+
+.artwork-list {
+    min-height: var(--contents-height);
+}
+.artwork-panel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.artwork-panel picture source,
+.artwork-panel picture img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.image-frame {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.layout-grid {
+  padding: var(--grid-gap) 0;
+  grid-gap: var(--grid-gap);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--artwork-panel-size));
+  grid-auto-rows: var(--artwork-panel-size);
+}
+
+
+.layout-grid .artwork-panel {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+@media all and (max-width: 640px) {
+    :root {
+        --grid-column-count: 3;
+    }
+}
+
