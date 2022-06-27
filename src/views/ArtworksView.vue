@@ -6,7 +6,7 @@ import type { Axios } from "axios";
 import type { Cloudinary } from "@cloudinary/url-gen";
 
 const $config = inject<typeof Config>("$config") as typeof Config;
-const $api = inject<Axios>("$axios") as Axios;
+const $api = inject<Axios>("$api") as Axios;
 const $cloudinary = inject<Cloudinary>("$cloudinary") as Cloudinary;
 
 type ArtworkData = {
